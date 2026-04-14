@@ -66,10 +66,10 @@ def parse_args():
     parser.add_argument(
         "--train-modes",
         nargs="+",
-        choices=["shared", "per_timepoint"],
-        default=["shared", "per_timepoint"],
-        #choices=["shared", "per_timepoint", "pca"],
-        #default=["shared", "per_timepoint", "pca"],
+        #choices=["shared", "per_timepoint"],
+        #default=["shared", "per_timepoint"],
+        choices=["shared", "per_timepoint", "pca"],
+        default=["shared", "per_timepoint", "pca"],
     )
     parser.add_argument(
         "--models",
@@ -78,23 +78,23 @@ def parse_args():
         help="Model names or aliases: VAE.",
         #default=["GAE", "VGAE"],
         #help="Model names or aliases: GAE, VGAE.",
-        #default=["AE", "GAE", "VAE", "VGAE"],
-        #help="Model names or aliases: AE, GAE, VAE, VGAE.",
+        default=["AE", "GAE", "VAE", "VGAE"],
+        help="Model names or aliases: AE, GAE, VAE, VGAE.",
     )
     parser.add_argument(
         "--graph-k",
         nargs="+",
         type=int,
-        default=[5, 10],
-        #default=[5, 10, 15, 20],
+        #default=[5, 10],
+        default=[5, 10, 15, 20],
         help="Spatial graph k values for GAE/VGAE only.",
     )
     parser.add_argument(
         "--seeds",
         nargs="+",
         type=int,
-        #default=list(range(10)),
-        default=list(range(5)),
+        default=list(range(10)),
+        #default=list(range(5)),
         help="Random seeds for learned models.",
     )
     parser.add_argument(
